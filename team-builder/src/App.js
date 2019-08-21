@@ -24,8 +24,10 @@ function App() {
       <h2>Teachers, let's hear about you!</h2>
           <TeamMember addNewTeachers={addNewTeachers} />
       <h2>Parents and teachers, here's your staff! </h2>
-  {teachers.map(  teacher   => {
-  return (<div><h3 key={teacher.id}>{teacher.name}</h3><p>{teacher.birthday}</p><p>{teacher.food}</p></div>)})}
+      {teachers.map(  teacher   => {
+          return (<div key={teacher.id}><h3>{teacher.name}</h3><p>{teacher.birthday}</p><p>{teacher.food}</p></div>
+          )
+      })}
 
     </div>
   );

@@ -12,7 +12,7 @@ function TeamMember(props) {
       event.preventDefault();
       const newTeacher = {...teacher, id: Date.now()}
       props.addNewTeachers(newTeacher);
-      setTeacher({ name: "", birthday: "", food: ""})
+      setTeacher({ name: "", birthday: ""});
     }
     
     return (
@@ -24,14 +24,14 @@ function TeamMember(props) {
             name="name"
             placeholder="name goes here"
             value={teacher.name}
-            onChange={e => setTeacher({name: e.target.value})}
+            onChange={e => setTeacher({...teacher, name: e.target.value})}
           />
           <label>Birthday: </label>
           <input 
             type="date"
             name="birthday"
             value={teacher.birthday}
-            onChange={e => setTeacher({birthday: e.target.value})}
+            onChange={e => setTeacher({...teacher, birthday: e.target.value})}
           />
           <label>Favorite Food: </label>
           <input 
@@ -39,7 +39,7 @@ function TeamMember(props) {
             placeholder="Cheesecake?"
             name="favFood"
             value={teacher.food}
-            onChange={e => setTeacher({food: e.target.value})}
+            onChange={e => setTeacher({...teacher, food: e.target.value})}
           />
           {/* <label>Food allergies?</label>
           <input 
