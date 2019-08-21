@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 
-function TeamMember () {
+function TeamMember(props) {
     const [teamMember, addTeamMember] = useState( [{name: "", birthday: "", favFood: "", allergies: "", more: "", none: ""}] );
 
-    const handleInfo = teacher => {
-      addTeamMember({...teamMember, [teacher.target.name]: teacher.target.value })
+    const handleInfo = e => {
+      addTeamMember({...teamMember, [e.target.name]: e.target.value })
     }
   
-    const submitForm = event => {
-      event.preventDefault();
-      console.log(teamMember);
-    }
+    // const submitForm = event => {
+    //   event.preventDefault();
+    //   const newTeacher = {...teamMember, id: Date.now()}
+    //   props.addNewTeachers(newTeacher);
+    //   console.log(teamMember);
+    // }
     
     return (
         <div className="form-div">
-        <form onSubmit={submitForm}>
+        <form onSubmit={props.addNewTeachers}>
           <label>Member Name:</label>
           <input 
             type="text"
