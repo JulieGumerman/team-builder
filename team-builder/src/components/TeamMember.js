@@ -1,46 +1,47 @@
 import React, { useState } from "react";
 
 function TeamMember(props) {
-    const [teamMember, addTeamMember] = useState( [{name: "", birthday: "", favFood: "", allergies: "", more: "", none: ""}] );
+ 
+    // const [name, setName] = useState("");
+    // const [birthday, setBirthday] = useState("");
+    // const [food, setFood] = useState("");
 
-    const handleInfo = e => {
-      addTeamMember({...teamMember, [e.target.name]: e.target.value })
-    }
+    const [teacher, setTeacher] = useState({ name: "", birthday: "", food: ""})
   
-    // const submitForm = event => {
-    //   event.preventDefault();
-    //   const newTeacher = {...teamMember, id: Date.now()}
-    //   props.addNewTeachers(newTeacher);
-    //   console.log(teamMember);
-    // }
+    const submitForm = event => {
+      event.preventDefault();
+      const newTeacher = {...teacher, id: Date.now()}
+      props.addNewTeachers(newTeacher);
+      setTeacher({ name: "", birthday: "", food: ""})
+    }
     
     return (
         <div className="form-div">
-        <form onSubmit={props.addNewTeachers}>
+        <form onSubmit={submitForm}>
           <label>Member Name:</label>
           <input 
             type="text"
             name="name"
             placeholder="name goes here"
-            value={teamMember.name}
-            onChange={handleInfo}
+            value={teacher.name}
+            onChange={e => setTeacher({name: e.target.value})}
           />
           <label>Birthday: </label>
           <input 
             type="date"
             name="birthday"
-            value={teamMember.birthday}
-            onChange={handleInfo}
+            value={teacher.birthday}
+            onChange={e => setTeacher({birthday: e.target.value})}
           />
           <label>Favorite Food: </label>
           <input 
             type="text"
             placeholder="Cheesecake?"
             name="favFood"
-            value={teamMember.favFood}
-            onChange={handleInfo}
+            value={teacher.food}
+            onChange={e => setTeacher({food: e.target.value})}
           />
-          <label>Food allergies?</label>
+          {/* <label>Food allergies?</label>
           <input 
             type="text"
             placeholder="n/a if none"
@@ -63,10 +64,9 @@ function TeamMember(props) {
             name="less"
             value={teamMember.less}
             onChange={handleInfo}
-            />
+            /> */}
           <button type="submit">Submit!</button>
         </form>
-        {console.log(teamMember)}
       </div>
 
         
