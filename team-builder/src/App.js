@@ -25,7 +25,8 @@ function App() {
           <TeamMember addNewTeachers={addNewTeachers} />
       <h2>Parents and teachers, here's your staff! </h2>
       {teachers.map(  teacher   => {
-          return (<div key={teacher.id}><h3>{teacher.name}</h3><p>{teacher.birthday}</p><p>{teacher.food}</p></div>
+          return (<div key={teacher.id}><h3>{teacher.name}</h3><p>birthday: {teacher.birthday}</p><p>favorite food: {teacher.food}</p><p>food allergies: {teacher.allergies}</p><p>I could always use more: {teacher.more}</p><p>I don't need any more...{teacher.less}</p>
+          </div>
           )
       })}
 

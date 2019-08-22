@@ -6,13 +6,13 @@ function TeamMember(props) {
     // const [birthday, setBirthday] = useState("");
     // const [food, setFood] = useState("");
 
-    const [teacher, setTeacher] = useState({ name: "", birthday: "", food: ""})
+    const [teacher, setTeacher] = useState({ name: "", birthday: "", food: "", allergies: "", more: "", less: ""})
   
     const submitForm = event => {
       event.preventDefault();
       const newTeacher = {...teacher, id: Date.now()}
       props.addNewTeachers(newTeacher);
-      setTeacher({ name: "", birthday: ""});
+      setTeacher({ name: "", birthday: "", food: "", allergies: "", more: "", less: ""});
     }
     
     return (
@@ -41,30 +41,30 @@ function TeamMember(props) {
             value={teacher.food}
             onChange={e => setTeacher({...teacher, food: e.target.value})}
           />
-          {/* <label>Food allergies?</label>
+         <label>Food allergies?</label>
           <input 
             type="text"
             placeholder="n/a if none"
             name="allergies"
-            value={teamMember.allergies}
-            onChange={handleInfo}
+            value={teacher.allergies}
+            onChange={e => setTeacher({...teacher, allergies: e.target.value})}
           />
           <label>What you could use more of:</label>
           <input 
             type="text"
             placeholder="flare pens? post its?"
             name="more"
-            value={teamMember.more}
-            onChange={handleInfo}
+            value={teacher.more}
+            onChange={ e => setTeacher({...teacher, more: e.target.value})}
           />
           <label>What you don't want more of:</label>
           <input 
             type="text"
             placeholder="grading papers?"
             name="less"
-            value={teamMember.less}
-            onChange={handleInfo}
-            /> */}
+            value={teacher.less}
+            onChange={e => setTeacher({...teacher, less: e.target.value})}
+            /> 
           <button type="submit">Submit!</button>
         </form>
       </div>
